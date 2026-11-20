@@ -1,11 +1,16 @@
-#ifndef LINKITEM_H
-#define LINKITEM_H
+#pragma once
+#include <QGraphicsLineItem>
+#include "shapeitem.h"
 
-
-class LinkItem
+class LinkItem : public QGraphicsLineItem
 {
 public:
-    LinkItem();
-};
+    LinkItem(ShapeItem *a, ShapeItem *b);
+    ShapeItem *first() const  { return m_a; }
+    ShapeItem *second() const { return m_b; }
+    void updatePosition();
 
-#endif // LINKITEM_H
+private:
+    ShapeItem *m_a;
+    ShapeItem *m_b;
+};
