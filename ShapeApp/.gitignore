@@ -1,0 +1,8 @@
+*.pro.user*
+build-*/
+*.db
+*.o
+*.exe
+moc_*
+ui_*
+rcc_*
