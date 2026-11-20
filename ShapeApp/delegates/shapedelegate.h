@@ -1,11 +1,14 @@
-#ifndef SHAPEDELEGATE_H
-#define SHAPEDELEGATE_H
+#pragma once
+#include <QStyledItemDelegate>
 
-
-class ShapeDelegate
+class ShapeDelegate : public QStyledItemDelegate
 {
 public:
-    ShapeDelegate();
-};
+    explicit ShapeDelegate(QObject *parent = nullptr)
+        : QStyledItemDelegate(parent) {}
 
-#endif // SHAPEDELEGATE_H
+    void paint(QPainter *painter, const QStyleOptionViewItem &option,
+               const QModelIndex &index) const override;
+    QSize sizeHint(const QStyleOptionViewItem &option,
+                   const QModelIndex &index) const override;
+};
